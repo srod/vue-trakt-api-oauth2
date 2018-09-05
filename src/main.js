@@ -1,12 +1,34 @@
+/* ============
+ * Main File
+ * ============ */
+
 import Vue from "vue";
+
+/* ============
+ * Plugins
+ * ============ */
+
+import { i18n, router } from "./plugins";
+
+/* ============
+ * Styling
+ * ============ */
+
+import "./assets/scss/app.scss";
+
+/* ============
+ * Main App
+ * ============ */
+
 import App from "./App.vue";
-import router from "./router";
 import store from "./store";
-import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
+store.dispatch("auth/check");
+
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)
