@@ -1,6 +1,7 @@
 /* ============
  * Routes File
  * ============ */
+import store from "@/store";
 
 export default [
   // Home
@@ -33,6 +34,24 @@ export default [
         }
       }
     ]
+  },
+
+  {
+    path: "/logout",
+    name: "logout",
+    meta: {
+      auth: true
+    },
+    beforeEnter(routeTo, routeFrom, next) {
+      store.dispatch("auth/logout");
+      const authRequiredOnPreviousRoute = routeFrom.matched.some(
+        route => route.meta.auth
+      );
+      // Navigate back to previous page, or home as a fallback
+      next(
+        authRequiredOnPreviousRoute ? { name: "home.index" } : { ...routeFrom }
+      );
+    }
   },
 
   {

@@ -1,23 +1,7 @@
 <template>
   <div class="main-layout">
-    <nav>
-      <router-link :to="{ name: 'home.index' }">
-        Vue 2 Boilerplate
-      </router-link>
-
-      <div>
-        <span>
-          <a href="#" v-if="loggedIn" @click.prevent="logout">
-            Logout
-          </a>
-        </span>
-      </div>
-    </nav>
-
-    <div>
-      <slot/>
-    </div>
-
+    <nav-bar />
+    <slot/>
   </div>
 </template>
 
@@ -25,19 +9,11 @@
 /* ============
  * Main Layout
  * ============ */
-import { authComputed } from "@/store/helpers";
+import NavBar from "@/components/NavBar";
 
 export default {
   name: "MainLayout",
 
-  computed: {
-    ...authComputed
-  },
-
-  methods: {
-    logout() {
-      this.$store.dispatch("auth/logout");
-    }
-  }
+  components: { NavBar }
 };
 </script>

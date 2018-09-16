@@ -28,9 +28,6 @@ export const login = ({ commit, dispatch, getters }) => {
 
 export const logout = ({ commit }) => {
   commit("set_user", null);
-  Vue.router.push({
-    name: "home.index"
-  });
 };
 
 // Validates the current user's token and refreshes it
