@@ -2,4 +2,8 @@
  * Getters for the auth module
  * ============ */
 
-export default {};
+export default {
+  loggedIn(state) {
+    return !!state.authenticated;
+  }
+};
