@@ -11,8 +11,7 @@ export const get_history = async ({ commit }) => {
 
 export const set_code = async ({ commit }, { code }) => {
   const { access_token } = await new TraktApi().getToken({ code });
-  // commit();
-  commit("auth/login", { token: access_token }, { root: true });
+  commit("auth/set_user", { token: access_token }, { root: true });
 };
 
 export default {

@@ -6,7 +6,7 @@
 export default {
   name: "TraktRedirect",
 
-  created() {
+  mounted() {
     const code = this.$route.query.code;
     this.$log.debug("code from Trakt", code);
 

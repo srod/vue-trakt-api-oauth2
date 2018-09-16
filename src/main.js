@@ -25,8 +25,6 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
-store.dispatch("auth/check");
-
 new Vue({
   i18n,
   router,

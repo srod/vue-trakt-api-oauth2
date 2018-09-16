@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-layout">
     <nav>
       <router-link :to="{ name: 'home.index' }">
         Vue 2 Boilerplate

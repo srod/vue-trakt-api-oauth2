@@ -4,6 +4,6 @@
 
 export default {
   loggedIn(state) {
-    return !!state.authenticated;
+    return !!state.currentUser;
   }
 };

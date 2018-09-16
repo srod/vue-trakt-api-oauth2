@@ -3,9 +3,11 @@
  * ============ */
 
 import Vue from "vue";
+import { setDefaultAuthHeaders } from "@/store/helpers";
 
-export const check = ({ commit }) => {
-  commit("check");
+export const init = ({ state, dispatch }) => {
+  setDefaultAuthHeaders(state);
+  dispatch("validate");
 };
 
 export const register = ({ commit }) => {
@@ -15,8 +17,9 @@ export const register = ({ commit }) => {
   });
 };
 
-export const login = ({ commit, dispatch }) => {
-  commit("login", "RandomGeneratedToken");
+export const login = ({ commit, dispatch, getters }) => {
+  if (getters.loggedIn) return dispatch("validate");
+  commit("set_user", "RandomGeneratedToken");
   dispatch("account/find");
   Vue.router.push({
     name: "home.index"
@@ -24,15 +27,24 @@ export const login = ({ commit, dispatch }) => {
 };
 
 export const logout = ({ commit }) => {
-  commit("logout");
+  commit("set_user", null);
   Vue.router.push({
     name: "home.index"
   });
 };
 
+// Validates the current user's token and refreshes it
+// with new data from the API.
+export const validate = ({ state }) => {
+  if (!state.currentUser) return Promise.resolve(null);
+  // TODO:
+  return Promise.resolve(true);
+};
+
 export default {
-  check,
+  init,
   register,
   login,
-  logout
+  logout,
+  validate
 };
