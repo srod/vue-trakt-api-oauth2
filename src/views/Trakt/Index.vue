@@ -1,7 +1,7 @@
 <template>
   <main-layout>
     <div class="trakt">
-      <router-view/>
+      <router-view :key="$route.fullPath" />
     </div>
   </main-layout>
 </template>
