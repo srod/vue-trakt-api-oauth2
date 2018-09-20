@@ -1,18 +1,19 @@
 import Vue from "vue";
 import Axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { get_history, set_code } from "@/store/modules/trakt/actions";
+
+import actions from "./actions";
 
 Vue.$http = Axios;
 
-describe("Trakt Actions", () => {
+describe("@/state/modules/trakt/actions", () => {
   test("get_history", async () => {
     const mock = new MockAdapter(Axios);
     const data = { response: true };
     mock.onGet("/users/srod/history").reply(200, data);
 
     const commit = jest.fn();
-    await get_history({ commit });
+    await actions.get_history({ commit });
     expect(commit).toBeCalled();
     expect(commit.mock.calls.length).toBe(1);
     expect(commit.mock.calls[0][0]).toBe("set_history");
@@ -26,7 +27,7 @@ describe("Trakt Actions", () => {
 
     const code = 1;
     const commit = jest.fn();
-    await set_code({ commit }, { code });
+    await actions.set_code({ commit }, { code });
     expect(commit).toBeCalled();
     expect(commit.mock.calls.length).toBe(1);
     expect(commit.mock.calls[0][0]).toBe("auth/set_user");

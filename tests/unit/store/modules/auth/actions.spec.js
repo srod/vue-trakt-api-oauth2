@@ -1,17 +1,38 @@
-import Vue from "vue";
+import { createLocalVue } from "@vue/test-utils";
 import VueRouter from "vue-router";
-import { check, register, login, logout } from "@/store/modules/auth/actions";
 
-Vue.use(VueRouter);
+// import * as authModule from "@/store/modules/auth";
+
+import {
+  init,
+  register,
+  login,
+  logout
+  // validate
+} from "@/store/modules/auth/actions";
+
+const localVue = createLocalVue();
+localVue.use(VueRouter);
 
 const router = new VueRouter({ mode: "history" });
-Vue.router = router;
+localVue.router = router;
 
 describe("Auth Actions", () => {
-  test("check", () => {
-    const commit = jest.fn();
-    check({ commit });
-    expect(commit).toBeCalled();
+  /* let store;
+  beforeEach(() => {
+    store = createModuleStore(authModule);
+    window.localStorage.clear();
+  }); */
+
+  /* test.only("exports a valid Vuex module", () => {
+    expect(authModule).toBeAVuexModule();
+  }); */
+
+  test("init", () => {
+    const state = {};
+    const dispatch = jest.fn();
+    init({ state, dispatch });
+    expect(dispatch).toBeCalled();
   });
 
   test("register", () => {
@@ -23,7 +44,8 @@ describe("Auth Actions", () => {
   test("login", () => {
     const commit = jest.fn();
     const dispatch = jest.fn();
-    login({ commit, dispatch });
+    const getters = jest.fn();
+    login({ commit, dispatch, getters });
     expect(commit).toBeCalled();
   });
 
@@ -32,4 +54,17 @@ describe("Auth Actions", () => {
     logout({ commit });
     expect(commit).toBeCalled();
   });
+
+  /* test("validate", () => {
+    const state = {};
+    validate({ state });
+    expect(state).toBeCalled();
+  }); */
+
+  /* test("actions.validate resolves to null when currentUser is null", () => {
+    store.commit("SET_USER", null);
+    return store.dispatch("validate").then(user => {
+      expect(user).toEqual(null);
+    });
+  }); */
 });

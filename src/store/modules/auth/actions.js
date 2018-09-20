@@ -2,7 +2,7 @@
  * Actions for the auth module
  * ============ */
 
-import Vue from "vue";
+// import Vue from "vue";
 import { setDefaultAuthHeaders } from "@/store/helpers";
 
 export const init = ({ state, dispatch }) => {
@@ -12,18 +12,18 @@ export const init = ({ state, dispatch }) => {
 
 export const register = ({ commit }) => {
   commit("login", "RandomGeneratedToken");
-  Vue.router.push({
-    name: "home.index"
-  });
+  // Vue.router.push({
+  //   name: "home.index"
+  // });
 };
 
 export const login = ({ commit, dispatch, getters }) => {
   if (getters.loggedIn) return dispatch("validate");
   commit("set_user", "RandomGeneratedToken");
   dispatch("account/find");
-  Vue.router.push({
-    name: "home.index"
-  });
+  // Vue.router.push({
+  //   name: "home.index"
+  // });
 };
 
 export const logout = ({ commit }) => {
