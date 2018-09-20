@@ -1,7 +1,7 @@
 import state from "./state";
 import mutations from "./mutations";
 
-describe("@/state/modules/auth/mutations", () => {
+describe("@/store/modules/auth/mutations", () => {
   test("set_user without token", () => {
     mutations.set_user(state);
     expect(state.currentUser).toBe(undefined);

@@ -11,7 +11,7 @@ const fixture = [
   { id: 2, firstName: "Wilma", lastName: "Flintstone" }
 ];
 
-describe("TraktApi.js", () => {
+describe("@/api/TraktApi.js", () => {
   describe("TraktApi()", () => {
     test("should instantiation be ok", () => {
       const api = new TraktApi();

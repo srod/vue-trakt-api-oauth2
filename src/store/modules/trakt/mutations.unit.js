@@ -3,7 +3,7 @@ import mutations from "./mutations";
 
 const history = { property: 1 };
 
-describe("@/state/modules/trakt/mutations", () => {
+describe("@/store/modules/trakt/mutations", () => {
   test("set_user history should be null", () => {
     mutations.set_history(state, { history: null });
     expect(state.history).toBe(null);

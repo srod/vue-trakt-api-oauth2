@@ -1,7 +1,7 @@
 import state from "./state";
 import actions from "./actions";
 
-describe("@/state/modules/auth/actions", () => {
+describe("@/store/modules/auth/actions", () => {
   test("init", () => {
     const dispatch = jest.fn();
     actions.init({ state, dispatch });

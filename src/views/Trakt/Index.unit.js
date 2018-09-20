@@ -7,7 +7,7 @@ const localVue = createLocalVue();
 localVue.use(VueRouter);
 const router = new VueRouter();
 
-describe("TraktIndex.vue", () => {
+describe("@/views/Trakt/Index.vue", () => {
   test("should render be ok", () => {
     const wrapper = shallowMount(TraktIndex, {
       localVue,

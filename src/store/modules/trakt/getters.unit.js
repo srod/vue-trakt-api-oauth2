@@ -3,7 +3,7 @@ import getters from "./getters";
 
 const history = { property: 1 };
 
-describe("@/state/modules/trakt/getters", () => {
+describe("@/store/modules/trakt/getters", () => {
   test("history should be null", () => {
     expect(getters.history(state)).toBe(null);
   });

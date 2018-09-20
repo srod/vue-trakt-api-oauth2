@@ -6,7 +6,7 @@ import TraktHistory from "./History.vue";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("TraktHistory.vue", () => {
+describe("@/views/Trakt/History.vue", () => {
   let actions;
   let getters;
   let state;

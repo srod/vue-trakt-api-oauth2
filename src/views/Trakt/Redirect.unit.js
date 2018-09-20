@@ -21,7 +21,7 @@ const router = new VueRouter({
   ]
 });
 
-describe("TraktIndex.vue", () => {
+describe("@/views/Trakt/Redirect.vue", () => {
   let actions;
   let store;
 

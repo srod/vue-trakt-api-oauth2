@@ -21,7 +21,7 @@ const fixture = {
   ]
 };
 
-describe("Api.js", () => {
+describe("@/api/Api.js", () => {
   describe("BaseApi()", () => {
     test("should instantiation be ok", () => {
       const api = new BaseApi("", {});

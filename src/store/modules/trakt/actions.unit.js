@@ -6,7 +6,7 @@ import actions from "./actions";
 
 Vue.$http = Axios;
 
-describe("@/state/modules/trakt/actions", () => {
+describe("@/store/modules/trakt/actions", () => {
   test("get_history", async () => {
     const mock = new MockAdapter(Axios);
     const data = { response: true };
